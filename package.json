@@ -1,5 +1,5 @@
 {
-  "name": "vercel_serveless_test",
+  "name": "vercel_serveless_jsonplaceholder",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
