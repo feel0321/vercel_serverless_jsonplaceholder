@@ -2,19 +2,31 @@ import './App.css';
 import { useEffect, useState } from 'react';
 
 function App() {
+  const [loaded, setLoaded] = useState(false);
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
+    fetch('/api')
       .then((response) => response.json())
-      .then((json) => setData(json));
+      .then((json) => {
+        setData(json.data);
+        setLoaded(true);
+      });
   }, []);
 
   useEffect(() => {
     console.log(data);
   }, [data]);
 
-  return <div>{data?.title || '로딩 중'}</div>;
+  return loaded ? (
+    <ol>
+      {data.map(({ id, title }) => (
+        <li key={id}>{title}</li>
+      ))}
+    </ol>
+  ) : (
+    '데이터 fetch 미완료'
+  );
 }
 
 export default App;
