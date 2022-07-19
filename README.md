@@ -4,7 +4,25 @@
 
 jsonplaceholder로 테스트하는 vercel serverless 함수 예제입니다
 
-[/api 링크](https://vercel-serverless-jsonplaceholder.vercel.app/api)는 jsonplaceholder의 todos를 모두 가져옵니다
+/api/get
 
-[/api/1 링크](https://vercel-serverless-jsonplaceholder.vercel.app/api/1)는 jsonplaceholder의 todos의 첫번째를 가져옵니다
-ex) /api/1, /api/2
+- getTodos
+- 모든 todo를 가져옵니다
+
+/api/get/{id}
+
+- getTodo
+- 특정 todo를 가져옵니다
+  ex) /api/get/1
+
+/api/post
+
+- postTodo
+- 특정 todo를 추가합니다
+- body 필요
+
+/api/put/{id}
+
+- updateTodo
+- 특정 todo를 수정합니다
+- body 필요
